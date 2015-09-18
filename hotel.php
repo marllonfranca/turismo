@@ -1,16 +1,35 @@
-﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta charset="UTF-8">
 <title>Hotel</title>
+<?php
+include('caminhos.php')
+?>
 </head>
+
 
 <body>
 
-<input type="text" name="nome" placeholder="Nome do hotel" />
+<div class="container" align="center">
+<form>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Hotel</label>
+   <input class="form-control" type="text" name="nome" placeholder="Nome do hotel"/>
+  </div>
 
-<input type="number" name="estrelas" placeholder="Quantidade de estrelas" />
+  <div class="form-group">
+    <label for="exampleInputEmail1">Estrelas</label>
+	
+    <input class="form-control" type="number" name="estrelas" placeholder="Quantidade de estrelas" />
+</div>
 
-<input type="button" name="cadastrar" value="CADASTRAR" />
+
+<button type="submit" class="btn btn-default">CADASTRAR</button>
+</form>
+</div>
+
+
+
 </body>
 </html>
