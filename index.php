@@ -74,6 +74,4 @@ width:150px;
         <li><a href="hotel.php">Hoteis</a></li>               
 </ul>
 </nav>
-
-
 </body></html>

@@ -4,14 +4,15 @@
 <meta charset="UTF-8">
 <title>Cidades</title>
 <?php
-include('caminhos.php')
+include('caminhos.php');
+include('conexao.php');
 ?>
 </head>
 
 <body>
 
 <div class="container" align="center">
-<form>
+<form method="post" action="processos.php">
   <div class="form-group">
     <label for="exampleInputEmail1">Cidade</label>
    <input class="form-control" type="text" name="nome" placeholder="Nome da cidade"/>
@@ -51,7 +52,40 @@ include('caminhos.php')
 </select>
 </div>
 <button type="submit" class="btn btn-default">CADASTRAR</button>
+<input type="hidden" value="2" name="opc"/>
 </form>
 </div>
+
+
+<br><br><br>
+<div>
+<table>
+<tr>
+<td>Cidade</td>
+<td>Estado</td>
+</tr>
+
+<?
+
+$rs = $conexao->prepare("SELECT idCidades, nome, estado FROM cidades order by nome"); 
+
+if($rs->execute()){ 
+	if($rs->rowCount() > 0){
+		while($row = $rs->fetch(PDO::FETCH_OBJ)){
+		?>
+		<tr>
+		<td><?=$row->nome?></td>
+		<td><?=$row->estado?></td>
+		<td> <input type="button" value="ALTERAR" onClick="alterar();"></td>
+		<td> <input type="button" value="EXCLUIR" onClick="delete('<?=$row->idCidades?>');"></td>
+		</tr>
+		<?
+		}
+	}
+}
+?>
+</table>
+</div>
+
 </body>
 </html>
